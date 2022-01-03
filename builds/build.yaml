@@ -5,10 +5,12 @@ name: '1.1.$(DayOfYear)$(rev:rr)'
 
 jobs:
 - job: BuildApple
+  pool:
+    vmImage: macOS-latest
   steps:
   - checkout: self
     clean: true
-    path: "CalibreApp"
+    path: "TestApp"
   - script: |
       ns --version --json
     displayName: 'Show nativescript version'
