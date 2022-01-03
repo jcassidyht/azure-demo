@@ -1,0 +1,14 @@
+trigger:
+- main
+
+name: '1.1.$(DayOfYear)$(rev:rr)'
+
+jobs:
+- job: BuildApple
+  steps:
+  - checkout: self
+    clean: true
+    path: "CalibreApp"
+  - script: |
+      ns --version --json
+    displayName: 'Show nativescript version'
