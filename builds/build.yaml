@@ -11,8 +11,12 @@ jobs:
   - checkout: self
     clean: true
     path: "TestApp"
+  - task: NodeTool@0 
+    inputs:
+      versionSpec: '14.x'
   - script: |
       npm --version
+      node --version
     displayName: 'Show NPM version'
   - script: |
       ns --version --json
