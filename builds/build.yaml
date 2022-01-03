@@ -12,5 +12,8 @@ jobs:
     clean: true
     path: "TestApp"
   - script: |
+      npm --version
+    displayName: 'Show NPM version'
+  - script: |
       ns --version --json
     displayName: 'Show nativescript version'
