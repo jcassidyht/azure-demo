@@ -17,6 +17,7 @@ jobs:
   - script: |
       npm --version
       node --version
+      ruby --version
     displayName: 'Show NPM version'
   - script: |
       ns --version --json
