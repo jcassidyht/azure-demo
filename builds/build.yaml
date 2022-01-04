@@ -19,9 +19,6 @@ jobs:
     displayName: 'Install six'
 
   - script: |
-      python -m pip install six
-    displayName: 'Install six'   
-  - script: |
       npm i -g nativescript
     displayName: 'Install nativescript'   
 
