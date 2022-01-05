@@ -9,9 +9,9 @@ http.createServer(function (request, response) {
 
     if(request.url === '/ipa'){
         filePath = './ipa/s.ipa';
-        contentType = 'text/javascript';
+        contentType = 'application/octet-stream';
     }else if (request.url === '/plist') {
-        contentType = 'text/javascript';
+        contentType = 'application/x-plist';
         filePath = './download.plist';
     }
 
