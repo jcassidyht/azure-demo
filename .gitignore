@@ -27,4 +27,7 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-serve/ipa
+serve/ipa/**
+serve/certs/**
+!serve/certs/*.bat
+!serve/certs/thesite.ext

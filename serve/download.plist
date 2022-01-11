@@ -11,7 +11,7 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>https://mysite/DeployApp/ipa</string>
+                    <string>https://mysite</string>
                 </dict>
             </array>
             <key>metadata</key>

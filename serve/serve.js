@@ -1,12 +1,21 @@
-var http = require('http');
+var http = require('https');
 var fs = require('fs');
 const myArgs = process.argv.slice(2);
-var ipaddress = myArgs[0]
-http.createServer(function (request, response) {
+var ipaddress = myArgs[0];
+
+const port = 8888;
+
+const options = {
+    key: fs.readFileSync('./serve/certs/thesite.key', 'utf8'),
+    cert: fs.readFileSync('./serve/certs/thesite.crt', 'utf8'),
+    ca: fs.readFileSync('./serve/certs/myCA.pem')
+  };
+
+
+http.createServer(options, function (request, response) {
     console.log('request starting...');
     var filePath;
     var contentType;
-    console.log(request.url);
 
     if(request.url === '/ipa'){
         filePath = './serve/ipa/s.ipa';
@@ -16,20 +25,29 @@ http.createServer(function (request, response) {
         filePath = './serve/download.plist';
     }
     if(filePath){
-    fs.readFile(filePath, function(error, content) {
-        if (error) {
+        fs.readFile(filePath, function(error, content) {
+            if (error) {
 
-                response.writeHead(500);
-                response.end('An Error Occured: '+error.code+' ..\n');
-                response.end(); 
+                    response.writeHead(500);
+                    response.end('An Error Occured: '+error.code+' ..\n');
+                    response.end(); 
+            }
+            else {
+                var contentToWrite;
+                if(contentType == 'application/x-plist'){
+                    contentToWrite=content.toString().replace("mysite", ipaddress+':'+port+'/ipa');
+                } else {
+                    contentToWrite = content;
+                }
+                response.writeHead(200, { 'Content-Type': contentType });
+                response.end(contentToWrite);
+            }
         }
-        else {
-            var theString=content.toString();
+    ) 
 
-            response.writeHead(200, { 'Content-Type': contentType });
-            response.end(theString.replace("mysite", ipaddress));
-        }
-    });
-}
-
-}).listen(8888);
+    } else {
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.end("hello Click the link to download an app<br><a  href='itms-services://?action=download-manifest&url=https://"+ ipaddress +":"+port+"/plist'>Download    </a>");
+    }
+   
+}).listen(port);
