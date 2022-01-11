@@ -19,34 +19,34 @@ jobs:
     displayName: 'Saying Hello'
 
 
-  # - task: NodeTool@0 
-  #   inputs:
-  #     versionSpec: '14.x'
-  # - script: |
-  #     python -m pip install six
-  #   displayName: 'Install six'
+  - task: NodeTool@0 
+    inputs:
+      versionSpec: '14.x'
+  - script: |
+      python -m pip install six
+    displayName: 'Install six'
 
-  # - script: |
-  #     npm i -g nativescript
-  #   displayName: 'Install nativescript'   
+  - script: |
+      npm i -g nativescript
+    displayName: 'Install nativescript'   
 
-  # - script: |
-  #     npm --version
-  #     node --version
+  - script: |
+      npm --version
+      node --version
 
-  #     ruby --version
-  #     gem query --local
-  #     echo **************************************
-  #     pip --version
-  #     pip show six
+      ruby --version
+      gem query --local
+      echo **************************************
+      pip --version
+      pip show six
 
-  #   displayName: 'Show NPM version'
-  # - script: |
-  #     ns --version --json
-  #   displayName: 'Show nativescript version'
-  # - script: |
-  #     ns doctor
-  #   displayName: 'Run ns doctor'
+    displayName: 'Show NPM version'
+  - script: |
+      ns --version --json
+    displayName: 'Show nativescript version'
+  - script: |
+      ns doctor
+    displayName: 'Run ns doctor'
   
   # - task: InstallAppleCertificate@2
   #   displayName: 'Install an Apple certificate'
