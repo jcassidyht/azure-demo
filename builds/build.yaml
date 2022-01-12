@@ -48,16 +48,16 @@ jobs:
       ns doctor
     displayName: 'Run ns doctor'
   
-  # - task: InstallAppleCertificate@2
-  #   displayName: 'Install an Apple certificate'
-  #   inputs:
-  #     certSecureFile: '$(apple_cert_sercure_file_id)'
-  #     certPwd: '$(P12password)'
+  - task: InstallAppleCertificate@2
+    displayName: 'Install an Apple certificate'
+    inputs:
+      certSecureFile: '$(apple_cert_sercure_file_id)'
+      certPwd: '$(P12password)'
 
-  # - task: InstallAppleProvisioningProfile@1
-  #   displayName: 'Install an Apple provisioning profile'
-  #   inputs:
-  #     provProfileSecureFile: '$(apple_provisioning_profile_file_id)'
+  - task: InstallAppleProvisioningProfile@1
+    displayName: 'Install an Apple provisioning profile'
+    inputs:
+      provProfileSecureFile: '$(apple_provisioning_profile_file_id)'
 
   # - script: |
   #     #pip install six
