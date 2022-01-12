@@ -2,8 +2,8 @@ trigger:
 - main
 
 name: '1.1.$(DayOfYear)$(rev:rr)'
-#variables:
-#  - group: AzureDemoVariables 
+variables:
+ - group: AzureDemoVariables 
 
 jobs:
 - job: BuildApple
