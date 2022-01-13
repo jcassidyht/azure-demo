@@ -59,23 +59,23 @@ jobs:
     inputs:
       provProfileSecureFile: '$(apple_provisioning_profile_file_id)'
 
-  # - script: |
-  #     #pip install six
-  #     # ns run ios --provision # causes prompt for some reason on machine
-  #     ns build ios --bundle --for-device
-  #   displayName: 'Run ns to build'
+  - script: |
+      #pip install six
+      # ns run ios --provision # causes prompt for some reason on machine
+      ns build ios --bundle --for-device
+    displayName: 'Run ns to build'
 
-  # - task: CopyFiles@2
-  #   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  #   inputs:
-  #     SourceFolder: '$(system.defaultworkingdirectory)'
-  #     Contents: |
-  #       **/*.ipa
-  #     TargetFolder: '$(build.artifactstagingdirectory)'
-  #     flattenFolders: true
-  #     preserveTimestamp: true
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)'
+      Contents: |
+        **/*.ipa
+      TargetFolder: '$(build.artifactstagingdirectory)'
+      flattenFolders: true
+      preserveTimestamp: true
       
-  # - task: PublishBuildArtifacts@1
-  #   displayName: 'Publish Artifact: drop'
-  #   inputs:
-  #     PathtoPublish: '$(build.artifactstagingdirectory)'
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
