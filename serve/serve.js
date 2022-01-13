@@ -18,7 +18,7 @@ http.createServer(options, function (request, response) {
     var contentType;
 
     if(request.url === '/ipa'){
-        filePath = './serve/ipa/s.ipa';
+        filePath = './serve/ipa/TestApp.ipa';
         contentType = 'application/octet-stream';
     }else if (request.url === '/plist') {
         contentType = 'application/x-plist';
